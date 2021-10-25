@@ -1,0 +1,62 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AppData
+/Documents
+/.android/avd
+/.btfs
+/.dotnet
+/.idlerc
+/.m2/repository
+/3D Objects
+/BrawlhallaReplays
+/Downloads/sqldeveloper-19.2.1.247.2212-x64/sqldeveloper
+/Downloads/Practical2_Memo (2)
+/Downloads/OracleXE112_Win64 (1)/DISK1
+/Downloads/OracleXE112_Win64/DISK1
+/Downloads/opera autoupdate
+/Downloads/MSFT_GroupResource
+/Downloads/KMSPico 10.2.2 [DazTeam.TW]
+/Downloads/GroupSet
+/Downloads/GroupPolicy/adm
+/Downloads/DS4Windows
+/Downloads/add_gpedit_msc_by_jwils876-d3kh6vm
+/Downloads
+/Creative Cloud Files
+/Contacts
+/Cisco Packet Tracer 8.0/logs/pt_05.28.2021_12.41.57.492.log
+/Cisco Packet Tracer 8.0/logs
+/Cisco Packet Tracer 8.0
+/Favorites
+/MicrosoftEdgeBackups/backups/MicrosoftEdgeBackup20201029
+/Links
+/IntelGraphicsProfiles
+/Intel/Logs/IntelME.log
+/Intel/Logs
+/Music
+/OneDrive
+/Oracle/oradiag_User/diag/clients/user_User/host_1212387022_80
+/opera autoupdate/Crash Reports/metadata
+/opera autoupdate
+/Pictures/Camera Roll/desktop.ini
+/Pictures
+/Saved Games/desktop.ini
+/Searches
+/TomTom Sports
+/Videos
+/SteamSetup.exe
+/ntuser.ini
+/NTUSER.DAT{3c0127c4-25d2-11eb-9dc4-95345bda8f3d}.TMContainer00000000000000000002.regtrans-ms
+/NTUSER.DAT{3c0127c4-25d2-11eb-9dc4-95345bda8f3d}.TMContainer00000000000000000001.regtrans-ms
+/NTUSER.DAT{3c0127c4-25d2-11eb-9dc4-95345bda8f3d}.TM.blf
+/ntuser.dat.LOG2
+/ntuser.dat.LOG1
+/NTUSER.DAT
+/DiscoveryRewardsCmpg323.sql
+/Desktop
+/.csslintrc
+/.bash_history
+/coffeelint.json
+/.packettracer
+/.lesshst
