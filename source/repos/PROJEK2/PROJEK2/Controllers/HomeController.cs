@@ -26,5 +26,13 @@ namespace PROJEK2.Controllers
 
             return View();
         }
+
+        public ActionResult SignUp()
+        {
+            ViewBag.Message = "User sign up.";
+
+            return View();
+        }
+
     }
 }
