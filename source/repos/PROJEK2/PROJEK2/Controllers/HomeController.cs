@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROJEK2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,20 @@ namespace PROJEK2.Controllers
         public ActionResult SignUp()
         {
             ViewBag.Message = "User sign up.";
+
+            return View();
+        }
+
+        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp(usermodel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
 
             return View();
         }

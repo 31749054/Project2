@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\PROJEK2\UsersDB\bin\Debug\UsersDB.dacpac
+C:\Users\User\source\repos\PROJEK2\UsersDB\bin\Debug\UsersDB.dll
+C:\Users\User\source\repos\PROJEK2\UsersDB\bin\Debug\UsersDB.pdb
+C:\Users\User\source\repos\PROJEK2\UsersDB\obj\Debug\UsersDB.sqlprojAssemblyReference.cache
+C:\Users\User\source\repos\PROJEK2\UsersDB\obj\Debug\UsersDB.dll
+C:\Users\User\source\repos\PROJEK2\UsersDB\obj\Debug\UsersDB.pdb
