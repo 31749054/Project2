@@ -59,9 +59,12 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Publish Profiles\" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Table" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
+    <Build Include="dbo\Table\User.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="UsersDB.refactorlog" />

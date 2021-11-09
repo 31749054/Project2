@@ -8,7 +8,10 @@ namespace PROJEK2.Models
 {
     public class usermodel
     {
-        
+
+        [Display(Name = "User ID")]
+        [Required(ErrorMessage = "You need to enter a valid User ID")]
+        public string USER_ID { get; set; }
 
         [Display(Name = "User Name")]
         [Required(ErrorMessage = "You need to enter a valid User Name")]

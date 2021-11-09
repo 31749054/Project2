@@ -74,3 +74,10 @@ C:\Users\User\source\repos\PROJEK2\PROJEK2\obj\Debug\PROJEK2.csproj.CoreCompileI
 C:\Users\User\source\repos\PROJEK2\PROJEK2\obj\Debug\PROJEK2.csproj.CopyComplete
 C:\Users\User\source\repos\PROJEK2\PROJEK2\obj\Debug\PROJEK2.dll
 C:\Users\User\source\repos\PROJEK2\PROJEK2\obj\Debug\PROJEK2.pdb
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\User\source\repos\PROJEK2\PROJEK2\bin\Microsoft.WindowsAzure.Storage.xml
