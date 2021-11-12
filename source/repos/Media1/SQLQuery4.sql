@@ -1,0 +1,4 @@
+﻿
+
+
+Alter TABLE Blogs ADD CONSTRAINT blogs_seq_counter DEFAULT(NEXT VALUE FOR dbo.ALBUM_SEQ1) FOR Id;

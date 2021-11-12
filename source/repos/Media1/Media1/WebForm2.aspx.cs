@@ -35,5 +35,10 @@ namespace Media1
                 Label3.Text = "Username or Password is incorrect";
             }
         }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm4.aspx");
+        }
     }
 }

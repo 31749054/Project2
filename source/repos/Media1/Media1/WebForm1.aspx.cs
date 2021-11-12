@@ -40,21 +40,35 @@ namespace Media1
             if (FileUpload1.HasFile)
             {
                 string ext = Path.GetExtension(FileUpload1.FileName);
-                if (ext == ".jpg" || ext == ".png" || ext == ".bmp")
+                if (ext == ".jpg" || ext == ".png" || ext == ".bmp" || ext == ".gif" || ext == ".jpeg")
                 {
                     FileUpload1.SaveAs(path + FileUpload1.FileName);
                     string name = "Images/" + FileUpload1.FileName;
-                    string ss = "insert into blogs(id, blog_head, blog_description, blog_image) values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + TextBox3.Text + "', '" + name + "')";
+                    string ss = "insert into blogs( blog_head, blog_description, blog_image) values('" + TextBox2.Text + "', '" + TextBox3.Text + "', '" + name + "')";
                     SqlCommand cmd = new SqlCommand(ss, con);
+
+                    
+
+                    
+                        SqlDataAdapter sda = new SqlDataAdapter("select * from Blogs", con);
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+
+                
+                    
+
                     con.Open();
                     cmd.ExecuteNonQuery();
                     con.Close();
 
                     Label1.Text = "Your blog has been created successfully";
                     Label1.ForeColor = System.Drawing.Color.Green;
+
+                   
                 }
                 else
                 {
+
                     Label1.Text = "You have to upload jpg or png file only!";
                 }
             }
@@ -104,11 +118,21 @@ namespace Media1
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
-            int numphoto = Convert.ToInt32(TextBox1.Text);
+            if(TextBox1.Text != "")
+            {
+                int numphoto = Convert.ToInt32(TextBox1.Text);
 
-            Label6.Text = dt.Rows[numphoto]["Blog_head"].ToString();
-            Label7.Text = dt.Rows[numphoto]["Blog_description"].ToString();
-            Image1.ImageUrl = dt.Rows[numphoto]["Blog_image"].ToString();
+                Label6.Text = dt.Rows[numphoto]["Blog_head"].ToString();
+                Label7.Text = dt.Rows[numphoto]["Blog_description"].ToString();
+                lblID.Text = dt.Rows[numphoto]["Id"].ToString();
+                Image1.ImageUrl = dt.Rows[numphoto]["Blog_image"].ToString();
+            }
+            else
+            {
+                Label1.Text = "Please Enter the ID of the photo.";
+            }
+
+
 
 
             //string connectionstring = "Data Source = photogram.database.windows.net; Initial Catalog = UsersDB; User ID = PhotoGram; Password = !cmpg321; Connect Timeout = 30; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
@@ -135,13 +159,26 @@ namespace Media1
             //}
 
 
-
+            Image1.Visible = true;
+            Label9.Visible = true;
+            Label10.Visible = true;
+            Label11.Visible = true;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
             Response.Redirect("WebForm2.aspx");
+        }
+
+        protected void TextBox1_TextChanged1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void EditBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm5.aspx");
         }
     }
 }
