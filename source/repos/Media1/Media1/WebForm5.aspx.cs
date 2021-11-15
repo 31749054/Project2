@@ -97,5 +97,43 @@ namespace Media1
         {
 
         }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm1.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (TextBox1.Text != "")
+            {
+                _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                _con.Open();
+                _cmd = new SqlCommand("DELETE from Blogs WHERE Id=@a3", _con);
+                _cmd.Parameters.Add("a3", Convert.ToInt32(TextBox1.Text));
+                _cmd.ExecuteNonQuery();
+
+
+                GridView1.DataBind();
+                Label4.Text = "Data deleted Successfully";
+            }
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            //String orderNo = Request.QueryString["ID"].ToString();
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.Connection = con;
+            //cmd.CommandText = "SELECT OrderNo, PaymentImage FROM Orders WHERE OrderNo=@OrderNo";
+            //cmd.Parameters.AddWithValue("@OrderNo", Request.QueryString["ID"].ToString());
+            //SqlDataReader dr = cmd.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    Guid id = (Guid)(dr["PaymentImage"]);
+            //    Response.TransmitFile(Server.MapPath("~/img/payments/" + id + ".jpg"));
+            //}
+            //con.Close();
+        }
     }
 }

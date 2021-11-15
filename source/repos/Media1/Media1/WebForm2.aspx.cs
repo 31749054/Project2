@@ -38,7 +38,7 @@ namespace Media1
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WebForm4.aspx");
+            Response.Redirect("WebForm3.aspx");
         }
     }
 }

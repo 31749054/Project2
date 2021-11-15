@@ -78,37 +78,25 @@ namespace Media1
             }
 
 
-            //byte[] bytes = null;
-            //HttpPostedFile postedfile = FileUpload1.PostedFile;
-            //string filename = Path.GetFileName(postedfile.FileName);
-            //string fileextension = Path.GetExtension(postedfile.FileName);
-            //int filesize = postedfile.ContentLength;
+            //con.Open();
 
-            //if (fileextension.ToLower() == ".jpg" || fileextension.ToLower() == ".bmp" || fileextension.ToLower() == ".gif" || fileextension.ToLower() == ".png")
-            //{
-            //    Stream stream = postedfile.InputStream;
-            //    BinaryReader binaryreader = new BinaryReader(stream);
-            //    bytes = binaryreader.ReadBytes((int)stream.Length);
-            //}
-            //else
-            //{
-            //    Label6.Text = "Could not load image";
-            //}
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.Connection = con;
+            //cmd.CommandText = "UPDATE Orders SET PaymentImage = @Image, PaymentStatus = @PaymentStatus WHERE OrderNo = @OrderNo AND PaymentStatus = 'Pending'; ";
 
-            //string connectionstring = "Data Source = photogram.database.windows.net; Initial Catalog = UsersDB; User ID = PhotoGram; Password = !cmpg321; Connect Timeout = 30; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-            //using (SqlConnection con = new SqlConnection(connectionstring))
-            //{
-            //    string query = "insert into imagedata values (@id,@filename,@fileextension,@filesize,@filecontent)";
-            //    SqlCommand cmd = new SqlCommand(query, con);
-            //    cmd.Parameters.AddWithValue("@id", TextBox1.Text.Trim());
-            //    cmd.Parameters.AddWithValue("@filename", filename);
-            //    cmd.Parameters.AddWithValue("@fileextension", fileextension);
-            //    cmd.Parameters.AddWithValue("@filesize", filesize);
-            //    cmd.Parameters.AddWithValue("@filecontent", bytes);
-            //    con.Open();
-            //    cmd.ExecuteNonQuery();
+            //string fileExt = Path.GetExtension(fuImage.FileName);
+            //string id = Guid.NewGuid().ToString();
 
-            //}
+            //cmd.Parameters.AddWithValue("@OrderNo", Request.QueryString["ID"].ToString());
+            //cmd.Parameters.AddWithValue("@Image", id + fileExt);
+            //cmd.Parameters.AddWithValue("@PaymentStatus", "Payment Sent");
+
+            //fuImage.SaveAs(Server.MapPath("~/img/payments/" + id + fileExt));
+
+            //cmd.ExecuteNonQuery();
+            //con.Close();
+
+            //Response.Redirect("Default.aspx");
         }
 
         protected void GetPhotoBtn_Click(object sender, EventArgs e)
