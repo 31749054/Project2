@@ -19,6 +19,7 @@ namespace Media1
         protected void Button1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //SqlConnection con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             SqlDataAdapter sda = new SqlDataAdapter("Select * From Register_Form Where User_Name='" + TextBox1.Text + "' and Password='" + TextBox2.Text + "'",con);
             DataTable dt = new DataTable();
             sda.Fill(dt);

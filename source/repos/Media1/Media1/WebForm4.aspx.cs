@@ -12,6 +12,7 @@ namespace Media1
     {
 
         string connectionstring = "Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //SqlConnection connectionstring = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +24,7 @@ namespace Media1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (TextBox3.Text == "" || TextBox4.Text == "" || TextBox5.Text == "" || txtUserID.Text == "" || TextBox6.Text == "" || TextBox7.Text == "" || TextBox8.Text == "" || TextBox1.Text == "" || TextBox2.Text == "")
+            if (TextBox3.Text == "" || TextBox4.Text == "" || TextBox5.Text == ""  || TextBox6.Text == "" || TextBox7.Text == "" || TextBox8.Text == "" || TextBox1.Text == "" || TextBox2.Text == "")
             {
                 Label10.Text = "Pleas fill in all fields.";
             }
@@ -42,7 +43,7 @@ namespace Media1
                 //    SqlCommand cmd = new SqlCommand("UserAddOrEdit", con);
 
 
-                    string ss = "insert into Register_Form(User_id, First_Name, Last_Name, User_Name, Password, Confirm_Password, Gender, Address, Email_id) values('" + txtUserID.Text + "', '" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + TextBox3.Text + "', '" + TextBox4.Text + "' , '" + TextBox5.Text + "' , '" + TextBox6.Text + "' , '" + TextBox7.Text + "' , '" + TextBox8.Text + "')";
+                    string ss = "insert into Register_Form(First_Name, Last_Name, User_Name, Password, Confirm_Password, Gender, Address, Email_id) values('" + TextBox1.Text + "', '" + TextBox2.Text + "', '" + TextBox3.Text + "', '" + TextBox4.Text + "' , '" + TextBox5.Text + "' , '" + TextBox6.Text + "' , '" + TextBox7.Text + "' , '" + TextBox8.Text + "')";
                     SqlCommand cmd = new SqlCommand(ss, con);
 
                     //cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -66,7 +67,7 @@ namespace Media1
         }
         void Clear()
         {
-            TextBox1.Text = TextBox2.Text = TextBox3.Text = TextBox4.Text = TextBox5.Text = TextBox6.Text = TextBox7.Text= txtUserID.Text = TextBox8.Text = "";
+            TextBox1.Text = TextBox2.Text = TextBox3.Text = TextBox4.Text = TextBox5.Text = TextBox6.Text = TextBox7.Text = TextBox8.Text = "";
             hfUserID.Value = "";
             Label10.Text = Label9.Text = "";
         }

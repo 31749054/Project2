@@ -17,6 +17,9 @@
             margin-left: 232px;
             background-color: #FFCCFF;
         }
+        .auto-style4 {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body style="height: 495px; width: 918px;">
@@ -49,9 +52,10 @@
                 <br />
                 <br />
                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" CssClass="auto-style4" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Back" />
+                <asp:Button ID="btnRegister" runat="server" OnClick="btnRegister_Click" Text="Back" CssClass="auto-style4" />
+                <br />
                 <br />
             </asp:Panel>
             </strong>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -38,15 +39,16 @@ namespace Media1
             if(TextBox1.Text != "" && TextBox2.Text != "" && TextBox3.Text != "")
             {
                 _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //SqlConnection _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 _con.Open();
-                _cmd = new SqlCommand("UPDATE Blogs SET Blog_head = @a1, Blog_Description =@a2 WHERE Id=@a3", _con);
+                _cmd = new SqlCommand("UPDATE Blogs SET Tag = @a1, Captured_by =@a2 WHERE Id=@a3", _con);
                 _cmd.Parameters.Add("a1", TextBox2.Text);
                 _cmd.Parameters.Add("a2", TextBox3.Text);
                 _cmd.Parameters.Add("a3", Convert.ToInt32(TextBox1.Text));
                 _cmd.ExecuteNonQuery();
 
 
-                GridView1.DataBind();
+               // GridView1.DataBind();
                 Label4.Text = "Table Updated Successfully";
             }
            
@@ -56,14 +58,15 @@ namespace Media1
             if (TextBox1.Text != "" && TextBox2.Text == "" && TextBox3.Text != "")
             {
                 _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //SqlConnection _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 _con.Open();
-                _cmd = new SqlCommand("UPDATE Blogs SET Blog_Description =@a2 WHERE Id=@a3", _con);
+                _cmd = new SqlCommand("UPDATE Blogs SET Captuerd_by =@a2 WHERE Id=@a3", _con);
                 _cmd.Parameters.Add("a2", TextBox3.Text);
                 _cmd.Parameters.Add("a3", Convert.ToInt32(TextBox1.Text));
                 _cmd.ExecuteNonQuery();
 
 
-                GridView1.DataBind();
+                //GridView1.DataBind();
                 Label4.Text = "Table Updated Successfully";
             }
           
@@ -74,14 +77,15 @@ namespace Media1
             if (TextBox1.Text != ""  && TextBox2.Text != "" && TextBox3.Text == "")
             {
                 _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //SqlConnection con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 _con.Open();
-                _cmd = new SqlCommand("UPDATE Blogs SET Blog_head = @a1 WHERE Id=@a3", _con);
+                _cmd = new SqlCommand("UPDATE Blogs SET Tagt = @a1 WHERE Id=@a3", _con);
                 _cmd.Parameters.Add("a1", TextBox2.Text);
                 _cmd.Parameters.Add("a3", Convert.ToInt32(TextBox1.Text));
                 _cmd.ExecuteNonQuery();
 
 
-                GridView1.DataBind();
+             //   GridView1.DataBind();
                 Label4.Text = "Table Updated Successfully";
             }
             else
@@ -105,17 +109,43 @@ namespace Media1
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            
             if (TextBox1.Text != "")
             {
                 _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //SqlConnection _con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 _con.Open();
-                _cmd = new SqlCommand("DELETE from Blogs WHERE Id=@a3", _con);
+                SqlDataAdapter sda = new SqlDataAdapter("Select * from Register_Form", _con);
+                DataSet ds = new DataSet();
+
+                
+
+
+            
+
+                sda.Fill(ds);
+                int i = ds.Tables[0].Rows.Count;
+
+                if (i > Convert.ToInt32(TextBox1.Text))
+                {
+                   _cmd = new SqlCommand("DELETE from Blogs WHERE Id=@a3", _con);
                 _cmd.Parameters.Add("a3", Convert.ToInt32(TextBox1.Text));
                 _cmd.ExecuteNonQuery();
+                   // GridView1.DataBind();
+                    Label4.Text = "Data deleted Successfully";
+                }
+                else
+                {
+                    Label4.Text = "Id does not exist in the table.";
+                }
 
 
-                GridView1.DataBind();
-                Label4.Text = "Data deleted Successfully";
+
+
+            }
+            else
+            {
+                Label4.Text = "Please enter a valid Id that exists in table.";
             }
         }
 
