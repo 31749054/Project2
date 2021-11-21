@@ -74,7 +74,7 @@ namespace Media1
                         Label1.Text = "Your blog has been created successfully";
                         Label1.ForeColor = System.Drawing.Color.Green;
 
-
+                        Panel2.Visible = true;
                     }
                     else
                     {
@@ -121,75 +121,50 @@ namespace Media1
 
         protected void GetPhotoBtn_Click(object sender, EventArgs e)
         {
+
             SqlConnection con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //SqlConnection con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            SqlDataAdapter sda = new SqlDataAdapter("select * from Blogs", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            SqlDataReader dr;
+          
             DataSet ds = new DataSet();
+           
 
-            if(TextBox1.Text != "")
+            if (TextBox1.Text != "")
             {
-                int numphoto = Convert.ToInt32(TextBox1.Text);
-
-                sda.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-
-                if(i > Convert.ToInt32(TextBox1.Text))
+                //  int numphoto = Convert.ToInt32(TextBox1.Text);
+                con = new SqlConnection("Data Source=photogram.database.windows.net;Initial Catalog=UsersDB;User ID=PhotoGram;Password=!cmpg321;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select * from Blogs WHERE Id ='" + TextBox1.Text + "'", con);
+                dr = cmd.ExecuteReader();
+                if(dr.Read())
                 {
-                    Label6.Text = dt.Rows[numphoto]["Tag"].ToString();
-                    Label7.Text = dt.Rows[numphoto]["Captured_by"].ToString();
-                    lblID.Text = dt.Rows[numphoto]["Id"].ToString();
-                    Image1.ImageUrl = dt.Rows[numphoto]["Blog_image"].ToString();
-                    Label13.Text = dt.Rows[numphoto]["Captured_date"].ToString();
-                    Label16.Text = dt.Rows[numphoto]["Location"].ToString();
-                }
-                else
-                {
-                    Label1.Text = "Id does not exist in the table.";
+                    Label6.Text = dr.GetValue(1).ToString();
+                    Image1.ImageUrl = dr.GetValue(3).ToString();
+                    Label7.Text = dr.GetValue(2).ToString();
+                    lblID.Text = dr.GetValue(0).ToString();
+                    Label13.Text = dr.GetValue(4).ToString();
+                    Label16.Text = dr.GetValue(5).ToString();
+
+                    Image1.Visible = true;
+                    Label9.Visible = true;
+                    Label10.Visible = true;
+                    Label11.Visible = true;
+                    Label17.Visible = true;
+                    Label14.Visible = true;
+
+                 
                 }
 
-               
-               
+                
+
+
             }
             else
             {
                 Label1.Text = "Please Enter the ID of the photo.";
             }
-
-
-
-
-            //string connectionstring = "Data Source = photogram.database.windows.net; Initial Catalog = UsersDB; User ID = PhotoGram; Password = !cmpg321; Connect Timeout = 30; Encrypt = True; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-            //using (SqlConnection con1 = new SqlConnection(connectionstring))
-            //{
-            //    string query = "select * from Blogs where id='" + TextBox1.Text.Trim() + "'";
-            //    SqlCommand cmd = new SqlCommand(query, con1);
-            //    con1.Open();
-            //    SqlDataAdapter da = new SqlDataAdapter();
-            //    da.SelectCommand = cmd;
-            //    DataTable dtbl = new DataTable();
-            //    da.Fill(dtbl);
-            //    if (dtbl != null && dtbl.Rows.Count > 0)
-            //    {
-            //        byte[] bytes = (byte[])dtbl.Rows[0]["Blog_image"];
-            //        string str = Convert.ToBase64String(bytes);
-
-            //        Image1.ImageUrl = "data:Image/png;base64," + str;
-            //    }
-            //    else
-            //    {
-            //        Label6.Text = "Could not find image";
-            //    }
-            //}
-
-
-            Image1.Visible = true;
-            Label9.Visible = true;
-            Label10.Visible = true;
-            Label11.Visible = true;
-            Label17.Visible = true;
-            Label14.Visible = true;
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -211,6 +186,17 @@ namespace Media1
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("WebForm6.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm7.aspx");
+        }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            lblIDhelp.Visible = true;
+            lblAddhelp.Visible = true;
         }
     }
 }

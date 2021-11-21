@@ -23,5 +23,11 @@ namespace Media1
         {
             Response.Redirect("WebForm4.aspx");
         }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            lblHelp.Visible = true;
+            lblHelp.Text = "If you have an account please login, if you don't please sign up.";
+        }
     }
 }

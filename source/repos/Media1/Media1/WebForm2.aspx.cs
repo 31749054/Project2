@@ -34,12 +34,19 @@ namespace Media1
             else
             {
                 Label3.Text = "Username or Password is incorrect";
+                Label3.Visible = true;
             }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             Response.Redirect("WebForm3.aspx");
+        }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            Label3.Visible = true;
+            Label3.Text = "Enter your name and password, if you don't have an account please create one.";
         }
     }
 }

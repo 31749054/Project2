@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            height: 848px;
+            height: 991px;
             background-color: #CCCCFF;
         }
         .auto-style2 {
@@ -37,11 +37,13 @@
             <br />
             <br />
             <br />
-            <strong>
-            <asp:Panel ID="Panel1" runat="server" CssClass="auto-style2" GroupingText="Sign Up" Height="497px" Width="623px">
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnHelp" runat="server" OnClick="btnHelp_Click" Text="Help" />
+&nbsp;<asp:Panel ID="Panel1" runat="server" CssClass="auto-style2" GroupingText="Sign Up" Height="531px" Width="623px">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lblHelp" runat="server" Text="Label" Visible="False"></asp:Label>
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />

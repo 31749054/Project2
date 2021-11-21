@@ -20,6 +20,7 @@ namespace Media1
             {
                 Clear();
             }
+          
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -75,6 +76,12 @@ namespace Media1
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Response.Redirect("WebForm3.aspx");
+        }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            lblHelp.Visible = true;
+            lblHelp.Text = "Pleas enter all the fields with the correct info.";
         }
     }
 }
